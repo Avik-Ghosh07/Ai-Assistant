@@ -3,17 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ai Assistant</title>
+    <title>Virtual AI Assistant</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>My Ai Assistant</h1>
-        <p>Press the button and say a command (e.g.,"Open Youtube")</p>
-        <button class="listen-btn" id="btn">
-            🎙️Start Listning
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-md mx-auto bg-gray-800 rounded-2xl shadow-2xl p-6 md:p-8 text-center space-y-6">
+        
+        <h1 class="text-3xl font-bold text-gray-100">Voice Assistant</h1>
+        <p class="text-gray-400">Click the button and speak a command.</p>
+
+        <!-- Visual Feedback Indicator -->
+        <div id="status-indicator" class="status-indicator w-24 h-24 mx-auto rounded-full bg-gray-700 flex items-center justify-center border-4 border-gray-600">
+            <i id="status-icon" class="fas fa-microphone text-3xl text-gray-400"></i>
+        </div>
+
+        <!-- Main activation button -->
+        <button id="start-btn" class="w-full bg-emerald-600 hover:bg-emerald-700 bg-cyan-500 shadow-lg shadow-emerald-500/50 text-white font-bold py-3 px-6 rounded-full text-lg box-shadow transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 disabled:bg-gray-500 disabled:cursor-not-allowed">
+            Activate Assistant
         </button>
+
+        <!-- Display area for user and assistant text -->
+        <div class="bg-gray-900 p-4 rounded-lg min-h-[120px] text-left space-y-2">
+            <div>
+                <h3 class="font-semibold text-blue-400">You said:</h3>
+                <p id="user-command" class="text-gray-300 italic">...</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-green-400">Assistant replied:</h3>
+                <p id="assistant-response" class="text-gray-300">...</p>
+            </div>
+        </div>
+        
+        <div id="unsupported-message" class="hidden bg-red-900/50 text-red-300 p-3 rounded-lg">
+            <p>Sorry, your browser does not support the Web Speech API. Please try Chrome or Edge.</p>
+        </div>
+
     </div>
-    <script src="./script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
