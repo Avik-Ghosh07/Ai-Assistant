@@ -95,15 +95,6 @@
                     const date = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
                     speak(`Today's date is ${date}`);
                 },
-                "what is  the weather today": () => {
-                    // NOTE: This requires a free API key from a service like OpenWeatherMap
-                    speak("I can't check the weather yet. This feature requires an API key to be configured.");
-                    // Example of how it would work:
-                    fetch('https://api.openweathermap.org/data/2.5/weather?q=Durgapur&appid=YOUR_API_KEY&units=metric')
-                      .then(response => response.json())
-                      .then(data => speak(`The current temperature is ${data.main.temp} degrees Celsius.`))
-                      .catch(() => speak("Sorry, I couldn't fetch the weather information."));
-                }
             };
 
             /**
